@@ -14,10 +14,11 @@
                                 }
                                 else
                                 {
-                                        echo '<form action="login.php" name="loginForm">';
+                                        echo '<form action="login.php" method="post" name="loginForm">';
                                         echo 'Username <input type="text" name="username">';
                                         echo 'Password <input type="password" name="password">';
-                                        echo '</form>';
+                                        echo '<input type="submit">';
+					echo '</form>';
                                 }
                         ?>
                 </p>
