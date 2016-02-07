@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<?php
+			session_start();
+		?>
 		<link type="text/css" rel="stylesheet" href="stylesheet.css">
                 <title> Collaborate </title>
 
@@ -22,7 +25,15 @@
                                 }
                         ?>
                 </p>
-                <h1> Login to see Anything </h1>
-        </body>
+			<?php
+				if(isset($_SESSION["valid"]))
+				{
+					if($_SESSION["valid"] === "Not")
+					{	
+						echo "<br> Invalid Username Password Combination";
+					}
+       				}
+			?>
+	 </body>
 
 </html>

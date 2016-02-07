@@ -9,23 +9,30 @@
 	<body>
 
 		<?php
-			echo "Hi";
+			session_start();
+			ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 			$servername="localhost";
-			$username="navr414";
+			$username="root";
 			$password="Showss66";
 			$dbname="collaborate";
 			$conn = mysqli_connect($servername,$username,$password,$dbname);
-			echo "Hi";
 	
-			$sql = "SELECT* FROM collaborate WHERE username='".$_POST["username"]."' AND PASSWORD='".$_POST["password"]."';";
-			$result = mysqli_query($conn,$sql);
+			$sql = "SELECT* FROM people WHERE username='".$_POST["username"]."' AND PASSWORD='".$_POST["password"]."';";
+			$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 			if(mysqli_num_rows($result)>0)
 			{
 				echo "You exsist";
+				$_SESSION["valid"] = "Yes";
+				$_SESSION["username"] = $_POST["username"];
+				header("Location: index.php");
 			}
 			else
 			{
-				echo "You don't exist";
+				echo "Invalid Username Password Combination <br>";
+				$_SESSION["valid"] = "Not";
+				header("Location: index.php");
 			}
 
 		?>
