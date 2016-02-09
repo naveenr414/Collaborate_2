@@ -14,6 +14,7 @@
                                 if(isset($_SESSION["username"]))
                                 {
                                         echo "Hello ".$_SESSION["username"];
+					echo "<a href='logout.php'> Logout </a>";
                                 }
                                 else
                                 {
@@ -22,7 +23,8 @@
                                         echo 'Password <input type="password" name="password">';
                                         echo '<input type="submit">';
 					echo '</form>';
-                                }
+                                	echo '<a href="register.php"> Register </a>';
+				}
                         ?>
                 </p>
 			<?php
