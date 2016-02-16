@@ -15,6 +15,8 @@
                                 {
                                         echo "Hello ".$_SESSION["username"];
 					echo "<a href='logout.php'> Logout </a>";
+					echo "<br>";
+					echo "<a href='create.php'> Create Page </a>";
                                 }
                                 else
                                 {
